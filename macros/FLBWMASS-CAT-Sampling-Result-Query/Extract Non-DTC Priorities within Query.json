@@ -1,0 +1,150 @@
+{
+  "Name": "Extract Non-DTC Priorities within Query",
+  "CreationDate": "2022-9-7",
+  "Commands": [
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var d=new Date(); return d.getFullYear() + '-' +((d.getMonth()+1))+'-' +d.getDate();",
+      "Value": "todaydate",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "MEDIUM",
+      "Value": "!REPLAYSPEED",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"expandCntrGridBtn\"]/span[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"expandEstGridBtn\"]/span[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "Non-DTC Contract priority.xlsx",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_smplCntrlist\"]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRunAndWait",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_smplCntrlist\"]/div/div[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "Non-DTC Estate priority.xlsx",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_smplEstlist\"]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_smplEstlist\"]/div/div[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "select",
+      "Target": "id=asmtWoTypeCode",
+      "Value": "label=DWO",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "click // id=asmtWoTypeCode",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "Non-DTC DWO priority.xlsx",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_wolist\"]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_wolist\"]/div/div[2]/span",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "D:\\CAT\\CAT OA Sampling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "Name": "PT MASS Inspection Query",
+  "CreationDate": "2022-9-9",
+  "Commands": [
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var d=new Date(); return d.getFullYear() + '-' +((d.getMonth()+1))+'-' +d.getDate();",
+      "Value": "todaydate",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "202209",
+      "Value": "myPeriod",
+      "Description": "Period parameter"
+    },
+    {
+      "Command": "comment",
+      "Target": "store // \\\\bvba16841\\ETL\\FLBWMASS\\PT MASS Inspection Query",
+      "Value": "myFolder",
+      "Description": "Folder parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "",
+      "Value": "myFile",
+      "Description": "Filename parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "120",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://tommass.int.housingauthority.gov.hk/mass/oper/insp/ptInspection.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"searchBtn\"]/span[2]",
+      "Value": "",
+      "Targets": [
+        "xpath=//*[@id=\"searchBtn\"]/span[2]",
+        "xpath=//div/span/span[2]",
+        "css=#searchBtn > span.text"
+      ],
+      "Description": "Click Clear"
+    },
+    {
+      "Command": "type",
+      "Target": "id=inspPrdCode",
+      "Value": "${myPeriod}",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"searchBtn\"]/span[2]",
+      "Value": "",
+      "Description": "Click Search"
+    },
+    {
+      "Command": "do",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"list_pager_right\"]/span",
+      "Value": "t",
+      "Description": ""
+    },
+    {
+      "Command": "repeatIf",
+      "Target": "${t} == \"No records to view\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "PT MASS Inspection Query (Period ${myPeriod}).xlsx",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_list\"]/div/div",
+      "Value": "",
+      "Description": "Click Excel"
+    },
+    {
+      "Command": "XRun",
+      "Target": "\\\\bvba16841\\ETL\\FLBWMASS\\PT MASS Inspection Query\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

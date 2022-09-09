@@ -1,0 +1,84 @@
+{
+  "Name": "IA Contract Summary",
+  "CreationDate": "2022-9-9",
+  "Commands": [
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var d=new Date(); return d.getFullYear() + '-' +((d.getMonth()+1))+'-' +d.getDate();",
+      "Value": "todaydate",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "store // \\\\bvba16841\\ETL\\FLBWMASS\\IA Contract Summary",
+      "Value": "myFolder",
+      "Description": "Folder parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "IA Contract Summary.xlsx",
+      "Value": "myFile",
+      "Description": "Filename parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "120",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://tommass.int.housingauthority.gov.hk/mass/enquiry/iaCntrSmryEnq/iaContractSummaryEnquiry.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"clearBtn\"]/span[2]",
+      "Value": "",
+      "Description": "Click Clear"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"searchBtn\"]/span[2]",
+      "Value": "",
+      "Description": "Click Search"
+    },
+    {
+      "Command": "do",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"list_pager_right\"]/span",
+      "Value": "t",
+      "Description": ""
+    },
+    {
+      "Command": "repeatIf",
+      "Target": "${t} == \"No records to view\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "onDownload",
+      "Target": "${myFile}",
+      "Value": "false",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"t_list\"]/div/div",
+      "Value": "",
+      "Description": "Click Excel"
+    },
+    {
+      "Command": "XRun",
+      "Target": "\\\\bvba16841\\ETL\\FLBWMASS\\IA Contract Summary\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

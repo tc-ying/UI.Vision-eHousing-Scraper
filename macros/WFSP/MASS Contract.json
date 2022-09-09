@@ -1,0 +1,72 @@
+{
+  "Name": "MASS Contract",
+  "CreationDate": "2022-9-9",
+  "Commands": [
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var d=new Date(); return d.getFullYear() + '-' +((d.getMonth()+1))+'-' +d.getDate();",
+      "Value": "todaydate",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "MASS Contract (Discipline BW - Building Works).xlsx",
+      "Value": "myFile",
+      "Description": "Filename parameter"
+    },
+    {
+      "Command": "comment",
+      "Target": "store // \\\\bvba16841\\ETL\\WFSP\\MASS Contract",
+      "Value": "myFolder",
+      "Description": "Folder parameter"
+    },
+    {
+      "Command": "open",
+      "Target": "https://wsp.int.housingauthority.gov.hk/wfsp/cntr/workCntr",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div/div/div[2]/main/div[2]/div/div/div/div[6]/button[2]",
+      "Value": "",
+      "Description": "Click Clear"
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=/html/body/div/div/div[2]/main/div[2]/div/div/div/div/div/div/div/input",
+      "Value": "BW - Building Works",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "click // xpath=/html/body/div[2]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div/div/div[2]/main/div[2]/div/div/div/div[6]/button",
+      "Value": "",
+      "Description": "Click Search"
+    },
+    {
+      "Command": "onDownload",
+      "Target": "${myFile}",
+      "Value": "true",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div/div/div[2]/main/div[2]/div/div[2]/div/div/div[2]/div[2]/div/button",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "\\\\bvba16841\\ETL\\WFSP\\MASS Contract\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

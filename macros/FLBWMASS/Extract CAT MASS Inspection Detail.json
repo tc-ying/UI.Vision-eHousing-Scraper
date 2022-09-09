@@ -1,0 +1,18 @@
+{
+  "Name": "Extract CAT MASS Inspection Detail",
+  "CreationDate": "2022-9-7",
+  "Commands": [
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var d=new Date(); return d.getFullYear() + '-' +((d.getMonth()+1))+'-' +d.getDate();",
+      "Value": "todaydate",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://tommass.int.housingauthority.gov.hk/mass/oper/insp/catInspection.html",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

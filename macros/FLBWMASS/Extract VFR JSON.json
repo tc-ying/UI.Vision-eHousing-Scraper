@@ -1,0 +1,126 @@
+{
+  "Name": "Extract VFR JSON",
+  "CreationDate": "2022-9-9",
+  "Commands": [
+    {
+      "Command": "comment",
+      "Target": "store // \\\\bvba16841\\ETL\\FLBWMASS\\VFR WO Handling",
+      "Value": "myFolder",
+      "Description": "Folder parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "2022",
+      "Value": "Year",
+      "Description": "Period parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "3",
+      "Value": "Quarter",
+      "Description": "Period parameter"
+    },
+    {
+      "Command": "store",
+      "Target": "30",
+      "Value": "EndDay",
+      "Description": "Period parameter"
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return String(Number(${Quarter}) * 3).padStart(2, '0')",
+      "Value": "EndMonth",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return String(Number(${EndMonth}) -2).padStart(2, '0');",
+      "Value": "StartMonth",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "01${StartMonth}${Year}",
+      "Value": "woCreDateFrom",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EndDay}${EndMonth}${Year}",
+      "Value": "woCreDateTo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "120",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "600",
+      "Value": "!TIMEOUT_PAGELOAD",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://tomctms.int.housingauthority.gov.hk/ctms/vfrWorksOrderEnquiry.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "waitForPageToLoad",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://tomctms.int.housingauthority.gov.hk/ctms/vfrworksorderenquiry.rpc?ctmsAction=getList&vfrWoCretDateFrom=${woCreDateFrom}&vfrWoCretDateTo=${woCreDateTo}&max=9999&page=1",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "bringBrowserToForeground",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_CTRL+KEY_S}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "5000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${Year}${StartMonth}01-${Year}${EndMonth}${EndDay}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "5000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XRun",
+      "Target": "\\\\bvba16841\\ETL\\FLBWMASS\\VFR WO Handling\\dl_source.bat",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}
